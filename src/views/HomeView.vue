@@ -1,18 +1,29 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ChooseQuiz v-if="!showQuestions" />
+    <ShowQuestions v-else />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import ChooseQuiz from '@/components/ChooseQuiz.vue'
+import ShowQuestions from '@/components/ShowQuestions.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
+  name: 'HomeView',
+  data() {
+    return {}
   },
-};
+  components: {
+    ChooseQuiz,
+    ShowQuestions
+  },
+  methods: {},
+  computed: {
+    ...mapGetters(['showQuestions'])
+  }
+}
 </script>
